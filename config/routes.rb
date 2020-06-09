@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   resources :investments do
     collection do
       get 'index2'
-      get 'index3'
     end
   end
+
+  root to: redirect('investments')
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
