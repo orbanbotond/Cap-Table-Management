@@ -1,6 +1,6 @@
 class InvestmentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user_for_investments, only: :index
+  before_action :set_user_for_investments, only: [:index, :create]
   before_action :set_investment, only: [:show, :edit, :update, :destroy]
 
   # GET /investments
