@@ -54,3 +54,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'mongoid'
+gem 'devise'
+gem 'mongoid-multitenancy', github: 'orbanbotond/mongoid-multitenancy', branch: 'transition-to-moingoid-7'
+
