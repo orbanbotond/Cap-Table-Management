@@ -1,0 +1,17 @@
+p#notice
+  = notice
+p
+  strong
+    | Investment:
+  = @investment.investment
+p
+  strong
+    | Shares:
+  = @investment.shares
+p
+  strong
+    | Name:
+  = @investment.name
+= link_to 'Edit', edit_investment_path(@investment)
+|  | 
+= link_to 'Back', investments_path

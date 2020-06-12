@@ -60,3 +60,4 @@ gem 'mongoid-multitenancy', github: 'orbanbotond/mongoid-multitenancy', branch: 
 
 gem 'simple_form'
 gem 'bootstrap', '~> 4.5.0'
+gem 'slim'

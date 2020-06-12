@@ -1,0 +1,83 @@
+p#notice
+  = notice
+h1
+  | Cap Table
+table
+  thead
+    tr
+      th[colspan="3"]
+        | Pre Finance
+      th[colspan="2"]
+        | Post Finance
+    tr
+      th
+        | Name
+      th
+        | Investment
+      th
+        | Stake
+      th
+        | Investment
+      th
+        | Nr Shares Issued
+      th
+        | Price Per Share
+      th
+        | Stake
+  tbody
+    - @investments.each do |investment|
+      - if @investments.last == investment
+        tr
+          td
+            = investment.name
+          td
+            | --
+          td
+            | --
+          td
+            = investment.investment
+          td
+            = investment.shares
+          td
+            = @current_price_per_share
+          td
+            = number_to_percentage investment.shares.to_f / @total_shares * 100
+      - else
+        tr
+          td
+            = investment.name
+          td
+            = investment.investment
+          td
+            = number_to_percentage investment.shares.to_f/ @total_shares_in_prev_round *100
+          td
+            = investment.investment
+          td
+            = investment.shares
+          td
+            = @current_price_per_share
+          td
+            = number_to_percentage investment.shares.to_f/ @total_shares * 100
+  tfoot
+    tr
+      td
+        | Total
+      td
+        = @investments_prev_round.map{|x|x.investment}.sum
+      td
+        = number_to_percentage @investments_prev_round.map{|x|x.shares}.sum.to_f / @total_shares_in_prev_round * 100
+      td
+        = @investments.map{|x|x.investment}.sum
+      td
+        = @investments.map{|x|x.shares}.sum
+      td
+      td
+        = number_to_percentage @investments.map{|x|x.shares}.sum.to_f / @total_shares * 100
+br
+|  Pre money Valuation: 
+= @pre_money_valuation
+br
+|  Post money Valuation: 
+= @post_money_valuation
+br
+= link_to 'New Investment Round', new_investment_path
