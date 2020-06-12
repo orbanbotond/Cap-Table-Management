@@ -1,32 +1,7 @@
-<%= form_with(model: investment, local: true) do |form| %>
-  <% if investment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(investment.errors.count, "error") %> prohibited this investment from being saved:</h2>
-
-      <ul>
-        <% investment.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :investment %>
-    <%= form.number_field :investment %>
-  </div>
-
-  <div class="field">
-    <%= form.label :shares %>
-    <%= form.number_field :shares %>
-  </div>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_area :name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= simple_form_for(investment) do |form| %>
+  <%= form.error_notification %>
+  <%= form.input :investment, as: :integer %>
+  <%= form.input :shares, as: :integer %>
+  <%= form.input :name %>
+  <%= form.button :submit, class: "btn-primary" %>
 <% end %>
