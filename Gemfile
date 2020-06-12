@@ -58,5 +58,5 @@ gem 'mongoid'
 gem 'devise'
 gem 'mongoid-multitenancy', github: 'orbanbotond/mongoid-multitenancy', branch: 'transition-to-moingoid-7'
 
-
 gem 'simple_form'
+gem 'bootstrap', '~> 4.5.0'
