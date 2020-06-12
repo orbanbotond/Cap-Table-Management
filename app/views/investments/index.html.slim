@@ -38,9 +38,9 @@ table.table.table-hover
         td
           = data[:post_finance][:nr_shares]
         td
-          = data[:post_finance][:price_per_share]
+          = number_with_precision data[:post_finance][:price_per_share], precision: 2
         td
-          = number_to_percentage data[:post_finance][:stake] * 100
+          = number_to_percentage data[:post_finance][:stake] * 100, precision: 2
   tfoot
     tr
       th[scope="row"]
@@ -67,7 +67,7 @@ table.table
   tbody
     tr
       td
-        = @pre_money_valuation
+        = number_with_precision @pre_money_valuation, precision: 2
       td
-        = @post_money_valuation
+        = number_with_precision @post_money_valuation, precision: 2
 = link_to 'New Investment Round', new_investment_path, class: "nav-link active"
